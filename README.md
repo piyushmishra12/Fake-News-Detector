@@ -13,5 +13,5 @@ This is an ongoing project that tries to classify real and fake news through ANN
 
 ## Run:
 ### Mac OS:
-1. Run using any IDE. (I use spyder from Anaconda)
+1. Run using any IDE. (I use spyder from Anaconda), or
 2. Open terminal, cd into the folder and run `python fake.py`.
