@@ -5,6 +5,6 @@ Before contributing, check if the concepts you wish to contribute are already im
 2. Clone in into your machine, `git clone https://github.com/<your_username>/Fake-News-Detector.git`
 3. Create a branch for your algorithm, `git checkout -b <branch_name>
 
-# Before starting to contribute, please make sure to let me know what issue you are working on.
+### Before starting to contribute, please make sure to let me know what issue you are working on.
 
-# While making a pull request, please mention the issue you solved by referring to it using the "#" key.
+### While making a pull request, please mention the issue you solved by referring to it using the "#" key.
