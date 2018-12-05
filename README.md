@@ -25,4 +25,4 @@ This is an ongoing project that tries to classify real and fake news through ANN
 2. Open terminal, cd into the folder and run `python fake.py`.
 
 ## Contributing guidelines:
-Before working on an issue, please let me know that you're working on it. While making a pull request, please refer to the issue you worked on by using the "#" key. 
+Before working on an issue, please let it be known that you're working on it by commentingh on the issue itself. While making a pull request, please refer to the issue you worked on by using the "#" key. Go through https://github.com/itsmepiyush2/Fake-News-Detector/blob/master/CONTRIBUTING.md for further details.
