@@ -26,3 +26,4 @@ This is an ongoing project that tries to classify real and fake news through ANN
 
 ## Contributing guidelines:
 Before working on an issue, please let it be known that you're working on it by commenting on the issue itself. While making a pull request, please refer to the issue you worked on by using the "#" key. Go through the [guidelines](https://github.com/itsmepiyush2/Fake-News-Detector/blob/master/CONTRIBUTING.md) for further details.
+![](https://github.com/NJACKWinterOfCode/Fake-News-Detector/blob/master/Pull%20Request.png)
