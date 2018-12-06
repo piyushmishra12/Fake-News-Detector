@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import string
 import re
+import os.path as op
 from collections import Counter
 import nltk
 nltk.download('stopwords')
@@ -28,18 +29,13 @@ def cleanup_text(docs, logging=False):
         texts.append(tokens)
     return pd.Series(texts)
 
-news = df.text
-news_clean = cleanup_text(news)
-
-title = df.title
-title_clean = cleanup_text(title)
-
 # Encoding the clean text
 news_clean_encoded = []
 title_clean_encoded = []
 vocab_size = 10000
 
 from keras.preprocessing.text import hashing_trick
+from keras.preprocessing.sequence import pad_sequences
 def encode(text_list):
     encoded_list = []
     for i in range(6335):
@@ -48,16 +44,25 @@ def encode(text_list):
         encoded_list.append(encoded)
     return(encoded_list)
 
-news_clean_encoded = encode(news_clean)
-
-title_clean_encoded = encode(title_clean)
-
-from keras.preprocessing.sequence import pad_sequences
-news_clean_encoded = pad_sequences(news_clean_encoded, maxlen = len(max(news_clean_encoded,
+if op.isfile('news_encoding.gz'):
+    news_clean_encoded = np.loadtxt('news_encoding.gz')
+else:
+    news = df.text
+    news_clean = cleanup_text(news)
+    news_clean_encoded = encode(news_clean)
+    news_clean_encoded = pad_sequences(news_clean_encoded, maxlen = len(max(news_clean_encoded,
                                                                            key = len)))
+    np.savetxt('news_encoding.gz',news_clean_encoded)
 
-title_clean_encoded = pad_sequences(title_clean_encoded, maxlen = len(max(title_clean_encoded,
+if op.isfile('title_encoding.gz'):
+    title_clean_encoded = np.loadtxt('title_encoding.gz')
+else:
+    title = df.title
+    title_clean = cleanup_text(title)
+    title_clean_encoded = encode(title_clean)
+    title_clean_encoded = pad_sequences(title_clean_encoded, maxlen = len(max(title_clean_encoded,
                                                                           key = len)))
+    np.savetxt('title_encoding.gz',title_clean_encoded)
 
 category = df.label
 category = pd.get_dummies(category)
@@ -101,10 +106,10 @@ loss_fn = track.history['loss']
 plt.plot(loss_fn)
 plt.title("Model Loss")
 plt.xlabel("Epochs")
-plt.show
+plt.show()
 
 accuracy_fn = track.history['acc']
 plt.plot(accuracy_fn)
 plt.title("Model Accuracy")
 plt.xlabel("Epochs")
-plt.show
+plt.show()
