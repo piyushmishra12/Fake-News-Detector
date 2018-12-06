@@ -10,4 +10,4 @@ Before starting to contribute, please make sure to let me know what issue you ar
 While making a pull request, please mention the issue you solved by referring to it using the "#" key.
 
 ## Pull Request Format
-Please click [here](https://github.com/NJACKWinterOfCode/Fake-News-Detector/blob/master/Pull%20Request.png) to know the format of a pull request before contributing.
+![](https://github.com/NJACKWinterOfCode/Fake-News-Detector/blob/master/Pull%20Request.png)
