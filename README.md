@@ -2,11 +2,13 @@
 
 ## Prerequisites:
 1. Any Python IDE.
-2. `pip install tensorflow`
-3. `pip install theano`
-4. `pip install keras`
-5. For natural language processing I have used spacy.
-To install spacy, `pip install -U spacy`. For spacy documentation, check https://spacy.io/usage/
+2. Keras using Tensorflow backend
+3. For natural language processing I have used spacy.
+For spacy documentation, check https://spacy.io/usage/
+
+### Setup
+`pip install -r requirements.txt`
+
 
 ## About:
 This is an ongoing project that tries to classify real and fake news through ANNs using Keras API. Three data files in .csv format are available to train or test models.
