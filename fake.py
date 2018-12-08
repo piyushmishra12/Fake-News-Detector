@@ -18,6 +18,7 @@ category = category.drop('REAL', 1)
 category = category.values
 
 x_train = news_clean_encoded
+input_dimen = x_train.shape[1]
 
 # Model Definition
 from keras.layers import Dense, Dropout
@@ -25,7 +26,7 @@ from keras.models import Sequential
 
 clf = Sequential()
 
-clf.add(Dense(units = 5312, kernel_initializer = 'uniform', activation = 'relu', input_dim = 10623))
+clf.add(Dense(units = input_dimen // 2, kernel_initializer = 'uniform', activation = 'relu', input_dim = input_dimen))
 
 clf.add(Dense(units = 1000, kernel_initializer = 'uniform', activation = 'relu'))
 #clf.add(Dropout(0.2))

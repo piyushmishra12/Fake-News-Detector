@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import string
 import re
+import preprocessor as pr
+import contractions as con
 from collections import Counter
 import nltk
 nltk.download('stopwords')
@@ -21,9 +23,12 @@ def cleanup_text(docs, logging=False):
         if counter % 1000 == 0 and logging:
             print("Processed %d out of %d documents." % (counter, len(docs)))
         counter += 1
+        pr.set_options(pr.OPT.URL, pr.OPT.EMOJI, pr.OPT.HASHTAG, pr.OPT.MENTION, pr.OPT.RESERVED, pr.OPT.SMILEY, pr.OPT.NUMBER)
+        doc = pr.clean(doc)
+        doc = con.fix(doc)
         doc = nlp(doc, disable=['parser', 'ner'])
         tokens = [tok.lemma_.lower().strip() for tok in doc if tok.lemma_ != '-PRON-']
-        tokens = [tok for tok in tokens if tok not in stopwords and tok not in punctuations]
+        tokens = [tok for tok in tokens if tok not in stopwords and tok not in punctuations and re.sub("[0-9]*",'',tok) != '']
         tokens = ' '.join(tokens)
         texts.append(tokens)
     return pd.Series(texts)
