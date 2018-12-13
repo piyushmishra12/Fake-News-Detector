@@ -62,3 +62,8 @@ plt.plot(accuracy_fn)
 plt.title("Model Accuracy")
 plt.xlabel("Epochs")
 plt.show()
+
+#Save Model
+model_file = open('clf_architecture.json','w')
+clf.save_weights('clf_weights.h5')
+model_file.write(clf.to_json())

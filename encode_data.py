@@ -32,7 +32,7 @@ def cleanup_text(docs, logging=False):
         tokens = ' '.join(tokens)
         texts.append(tokens)
     return pd.Series(texts)
-
+ 
 news = df.text
 news_clean = cleanup_text(news)
 
@@ -47,7 +47,7 @@ vocab_size = 10000
 from keras.preprocessing.text import hashing_trick
 def encode(text_list):
     encoded_list = []
-    for i in range(6335):
+    for i in range(len(text_list)):
         text = text_list[i]
         encoded = hashing_trick(text, vocab_size, hash_function = 'md5')
         encoded_list.append(encoded)
@@ -55,8 +55,9 @@ def encode(text_list):
 
 from keras.preprocessing.sequence import pad_sequences
 news_clean_encoded = encode(news_clean)
-news_clean_encoded = pad_sequences(news_clean_encoded, maxlen = len(max(news_clean_encoded,
+news_clean_encoded = pad_sequences(news_clean_encoded, len(max(news_clean_encoded,
                                                                            key = len)))
+
 title_clean_encoded = encode(title_clean)
 title_clean_encoded = pad_sequences(title_clean_encoded, maxlen = len(max(title_clean_encoded,
                                                                           key = len)))
