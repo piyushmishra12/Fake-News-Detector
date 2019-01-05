@@ -27,7 +27,6 @@ protobuf==3.6.1
 pyreadline==2.1
 python-dateutil==2.7.5
 pytz==2018.7
-PyYAML==3.13
 regex==2018.1.10
 requests==2.20.1
 scipy==1.1.0
