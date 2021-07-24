@@ -1,4 +1,6 @@
 # Fake-News-Detector
+DO NOT USE THIS AS IS! It is an old, unmaintained project which might have a few insecurities and inconsistencies, and I have stopped maintaining it.
+
 
 ## Prerequisites:
 1. Any Python IDE.
