@@ -1,5 +1,5 @@
 # Fake-News-Detector
-DO NOT USE THIS AS IS! It is an old, unmaintained project which might have a few insecurities and inconsistencies, and I have stopped maintaining it.
+DO NOT USE THIS AS IS! It is an old, unmaintained project which might have a few insecurities and inconsistencies, and I have stopped maintaining it. You could, however, use it as an example project to base your own stuff from it.
 
 
 ## Prerequisites:
